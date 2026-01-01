@@ -1,0 +1,96 @@
+# .gitignore for Python IoT / ML project
+# Adjust as needed — keep important small config files (e.g., environment.yml) under version control
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Conda envs
+.conda/
+
+# Installer / build artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+.eggs/
+
+# Python packaging
+*.egg
+*.whl
+
+# Testing
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs and runtime files
+logs/
+*.log
+*.out
+
+# Databases / state / caches
+db/
+*.db
+*.sqlite
+
+# Data and results (ignore large or generated data; keep small, hand-curated files if needed)
+data/
+results/
+
+# Model artifacts
+models/
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.onnx
+
+# Misc generated files
+*.csv
+*.tmp
+*.temp
+*.bak
+~*
+*.swp
+
+# IDE / editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets / environment overrides
+secrets.*
+*.key
+*.pem
+.env.local
+
+# Docker
+docker-compose.override.yml
+
+# Keep this file under version control
+
+# Notes:
+# - If you want to track certain files inside data/, models/, or results/ (e.g., small example datasets),
+#   add a negation rule like: "!data/keep_this_file.csv" or track a small subfolder explicitly.
+# - Leave environment.yml and requirements.txt tracked so others can reproduce your environment.
