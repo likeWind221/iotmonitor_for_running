@@ -16,10 +16,20 @@
 	- `docker compose -p iot_running down`
 
 # 文件作用简介
-- docker-compose.yml：一键启动 Zookeeper 与 Kafka（含对外监听设置）。
+
+主要文件：
+- simulator_mqtt.py: 实时发送模拟生成的运动、生理数据，直接上传至mqtt
 - mqtt_to_kafka.py：MQTT → Kafka 桥接，把设备 MQTT 主题转发到 Kafka topic。
-- mqtt_subscriber.py：订阅 MQTT 或 Kafka，做窗口统计、模型推理与日志写入 logs/analysis.csv。
-- mqtt_to_kafka.py 的 SQLite 选项：可把原始/分表数据落地调试。
+- mqtt_subscriber.py：订阅 MQTT 或 Kafka，做窗口统计、模型推理与日志写入 logs/analysis.csv。是集成推理的代码部分。
+
+次要文件：
+- generate_training_data.py：生成模拟数据的csv文件，用于训练集
+- Project/test1/test1.ino：真实ESP32数据采集脚本，上传至MQTT
+- scripts/train_bc：离线训练强化学习智能体
+- scripts/train_sequence.py：训练深度时序模型
+
+其他文件：
+- docker-compose.yml：一键启动 Zookeeper 与 Kafka。
 - data/：示例/训练用数据集及切分。
 - models/：行为克隆与序列模型权重等产物。
 - scripts/：训练、评估、数据集拆分、推理等辅助脚本。
